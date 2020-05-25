@@ -38,7 +38,7 @@ export default class ContentLoader extends Component {
         this.loopAnimation = this
             .loopAnimation
             .bind(this)
-    }   
+    }
     offsetValueBound(x) {
         if (x > 1) {
             return '1'
@@ -84,11 +84,13 @@ export default class ContentLoader extends Component {
         Animated.sequence([
             Animated.timing(this._animate, {
                 toValue: 1,
-                duration: this.state.frequence
+                duration: this.state.frequence,
+                useNativeDriver: false
             }),
             Animated.timing(this._animate, {
                 toValue: 0,
-                duration: this.state.frequence
+                duration: this.state.frequence,
+                useNativeDriver: false
             })
         ]).start((event) => {
             if (event.finished) {
